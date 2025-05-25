@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, model } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TaskList } from '../task-list/task-list';
 import { signal, Signal, computed } from '@angular/core';
@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatListModule} from '@angular/material/list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 interface ITodo{
   id: number;
@@ -19,7 +20,8 @@ interface ITodo{
   selector: 'app-root',
   imports: [RouterOutlet, TaskList, MatButtonModule, 
     MatCardModule, MatIconModule, FormsModule, 
-    MatInputModule, MatFormFieldModule, MatListModule
+    MatInputModule, MatFormFieldModule, MatListModule,
+    MatCheckboxModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -33,7 +35,8 @@ export class AppComponent {
   description = '';
   value = 'Clear me';
   typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-
+readonly checked = model(false);
+  readonly indeterminate = model(false);
   addTask(): void {
     console.log("run addTask");
     if(this.description==''){
