@@ -1,0 +1,23 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+mat-card {
+    width: 500px;
+}
+
+mat-card-header, mat-card-actions {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+mat-list-option {
+    width: 500px;
+}
